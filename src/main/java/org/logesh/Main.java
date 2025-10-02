@@ -9,9 +9,11 @@ import org.logesh.repositories.impl.InMemoryGroupRepository;
 import org.logesh.services.BalanceSheetService;
 import org.logesh.services.ExpenseService;
 import org.logesh.services.GroupService;
+import org.logesh.services.SettlementService;
 import org.logesh.services.impl.BalanceSheetServiceImpl;
 import org.logesh.services.impl.ExpenseServiceImpl;
 import org.logesh.services.impl.GroupServiceImpl;
+import org.logesh.services.impl.SettlementServiceImpl;
 
 import java.util.*;
 
@@ -27,7 +29,8 @@ public class Main {
         ExpenseRepository expenseRepository = new InMemoryExpenseRepositoryImpl();
         ExpenseService expenseService = new ExpenseServiceImpl(expenseRepository);
         BalanceSheetService balanceSheetService = new BalanceSheetServiceImpl();
-        GroupService groupService = new GroupServiceImpl(groupRepository, expenseService, balanceSheetService);
+        SettlementService settlementService = new SettlementServiceImpl();
+        GroupService groupService = new GroupServiceImpl(groupRepository, expenseService, balanceSheetService, settlementService);
 
         // Create a group
         groupService.createGroup("Trip to Coimbatore", Arrays.asList(logesh, saran, arun));
