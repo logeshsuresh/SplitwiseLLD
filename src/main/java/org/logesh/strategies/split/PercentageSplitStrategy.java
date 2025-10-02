@@ -15,7 +15,7 @@ public class PercentageSplitStrategy implements SplitStrategy {
         if (totalPercentage != 100) throw new IllegalArgumentException(String.format("Percentage values don't sum up to 100. Percentage Sum: {}", totalPercentage));
         List<Split> splitList = new ArrayList<>();
         for (User participant : participants) {
-            double splitForParticipant = totalAmount * expenseMetadata.get(participant);
+            double splitForParticipant = totalAmount * (expenseMetadata.get(participant) / 100);
             Split split = new Split(participant, splitForParticipant);
             splitList.add(split);
         }
