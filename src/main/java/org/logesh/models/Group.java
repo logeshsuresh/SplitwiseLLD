@@ -6,7 +6,6 @@ import lombok.Data;
 import java.util.*;
 
 @Data
-@Builder
 public class Group {
 
     private final String groupId;
